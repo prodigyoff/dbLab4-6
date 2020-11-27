@@ -19,8 +19,8 @@ public class MyView {
     private final SupermarketController supermarketController = new SupermarketController();
     private final TradeNetworkController tradeNetworkController = new TradeNetworkController();
 
-    private Map<String, String> menu;
-    private Map<String, Printable> methodsMenu;
+    private final Map<String, String> menu;
+    private final Map<String, Printable> methodsMenu;
     private static final Scanner INPUT = new Scanner(System.in);
 
     public MyView(){
@@ -140,20 +140,22 @@ public class MyView {
     private void getSectionById() throws SQLException {
         System.out.println("\nEnter ID for section");
         int id = INPUT.nextInt();
-        System.out.println(sectionController.getBy(id));
+        System.out.println(sectionController.get(id));
     }
 
     private void deleteSection() throws SQLException {
         System.out.println("\nEnter ID for an section you want to delete");
         int id = INPUT.nextInt();
-        System.out.println(sectionController.delete(id));
+        sectionController.delete(id);
+        System.out.println("Deleted successfully");
     }
 
     private void createSection() throws SQLException {
         System.out.println("\nEnter name");
         String name = INPUT.next();
         Section section = new Section(name);
-        System.out.println(sectionController.create(section));
+        sectionController.create(section);
+        System.out.println("Created successfully");
     }
 
     private void updateSection() throws SQLException {
@@ -162,7 +164,8 @@ public class MyView {
         System.out.println("\nEnter name");
         String name = INPUT.next();
         Section updatedSection = new Section(id, name);
-        System.out.println(sectionController.update(updatedSection));
+        sectionController.update(updatedSection);
+        System.out.println("Updated successfully");
     }
 
     private void getAllAdvertismentPanels() throws SQLException {
@@ -173,13 +176,14 @@ public class MyView {
     private void getAdvertismentPanelById() throws SQLException {
         System.out.println("\nEnter ID for advertisment panel");
         int id = INPUT.nextInt();
-        System.out.println(advertismentPanelController.getBy(id));
+        System.out.println(advertismentPanelController.get(id));
     }
 
     private void deleteAdvertismentPanel() throws SQLException {
         System.out.println("\nEnter ID for an advertisment panel you want to delete");
         int id = INPUT.nextInt();
-        System.out.println(advertismentPanelController.delete(id));
+        advertismentPanelController.delete(id);
+        System.out.println("Deleted successfully");
     }
 
     private void createAdvertismentPanel() throws SQLException {
@@ -194,7 +198,8 @@ public class MyView {
         System.out.println("\nEnter number of panels");
         Integer numberOfPanels = INPUT.nextInt();
         AdvertismentPanel advertismentPanel = new AdvertismentPanel(producer, resolution, power, sectionId, numberOfPanels);
-        System.out.println(advertismentPanelController.create(advertismentPanel));
+        advertismentPanelController.create(advertismentPanel);
+        System.out.println("Created successfully");
     }
 
     private void updateAdvertismentPanel() throws SQLException {
@@ -211,7 +216,8 @@ public class MyView {
         System.out.println("\nEnter number of panels");
         Integer numberOfPanels = INPUT.nextInt();
         AdvertismentPanel updatedPanel = new AdvertismentPanel(id, producer, resolution, power, sectionId, numberOfPanels);
-        System.out.println(advertismentPanelController.update(updatedPanel));
+        advertismentPanelController.update(updatedPanel);
+        System.out.println("Updated successfully");
     }
 
     private void getAllCities() throws SQLException {
@@ -222,20 +228,22 @@ public class MyView {
     private void getCityById() throws SQLException {
         System.out.println("\nEnter ID for city");
         int id = INPUT.nextInt();
-        System.out.println(cityController.getBy(id));
+        System.out.println(cityController.get(id));
     }
 
     private void deleteCity() throws SQLException {
         System.out.println("\nEnter ID for a city you want to delete");
         int id = INPUT.nextInt();
-        System.out.println(cityController.delete(id));
+        cityController.delete(id);
+        System.out.println("Deleted successfully");
     }
 
     private void createCity() throws SQLException {
         System.out.println("\nEnter name");
         String name = INPUT.next();
         City city = new City(name);
-        System.out.println(cityController.create(city));
+        cityController.create(city);
+        System.out.println("Created successfully");
     }
 
     private void updateCity() throws SQLException {
@@ -244,7 +252,8 @@ public class MyView {
         System.out.println("\nEnter name");
         String name = INPUT.next();
         City updatedCity = new City(id, name);
-        System.out.println(cityController.update(updatedCity));
+        cityController.update(updatedCity);
+        System.out.println("Updated successfully");
     }
 
     private void getAllStreets() throws SQLException {
@@ -255,13 +264,14 @@ public class MyView {
     private void getStreetById() throws SQLException {
         System.out.println("\nEnter ID for street");
         int id = INPUT.nextInt();
-        System.out.println(streetController.getBy(id));
+        System.out.println(streetController.get(id));
     }
 
     private void deleteStreet() throws SQLException {
         System.out.println("\nEnter ID for a street you want to delete");
         int id = INPUT.nextInt();
-        System.out.println(streetController.delete(id));
+        streetController.delete(id);
+        System.out.println("Deleted successfully");
     }
 
     private void createStreet() throws SQLException {
@@ -270,7 +280,8 @@ public class MyView {
         System.out.println("\nEnter name");
         String name = INPUT.next();
         Street street = new Street(cityId, name);
-        System.out.println(streetController.create(street));
+        streetController.create(street);
+        System.out.println("Created successfully");
     }
 
     private void updateStreet() throws SQLException {
@@ -281,7 +292,8 @@ public class MyView {
         System.out.println("\nEnter city id for street");
         Integer cityId = INPUT.nextInt();
         Street updatedStreet = new Street(id, cityId, name);
-        System.out.println(streetController.update(updatedStreet));
+        streetController.update(updatedStreet);
+        System.out.println("Updated successfully");
     }
 
     private void getAllHouses() throws SQLException {
@@ -292,20 +304,22 @@ public class MyView {
     private void getHouseById() throws SQLException {
         System.out.println("\nEnter ID for house");
         int id = INPUT.nextInt();
-        System.out.println(houseController.getBy(id));
+        System.out.println(houseController.get(id));
     }
 
     private void deleteHouse() throws SQLException {
         System.out.println("\nEnter ID for a house you want to delete");
         int id = INPUT.nextInt();
-        System.out.println(houseController.delete(id));
+        houseController.delete(id);
+        System.out.println("Deleted successfully");
     }
 
     private void createHouse() throws SQLException {
         System.out.println("\nEnter street id for house");
         Integer streetId = INPUT.nextInt();
         House house = new House(streetId);
-        System.out.println(houseController.create(house));
+        houseController.create(house);
+        System.out.println("Created successfully");
     }
 
     private void updateHouse() throws SQLException {
@@ -314,7 +328,8 @@ public class MyView {
         System.out.println("\nEnter street id");
         Integer streetId = INPUT.nextInt();
         House updatedHouse = new House(id, streetId);
-        System.out.println(houseController.update(updatedHouse));
+        houseController.update(updatedHouse);
+        System.out.println("Updated successfully");
     }
 
     private void getAllSupermarkets() throws SQLException {
@@ -325,13 +340,14 @@ public class MyView {
     private void getSupermarketById() throws SQLException {
         System.out.println("\nEnter ID for supermarket");
         int id = INPUT.nextInt();
-        System.out.println(supermarketController.getBy(id));
+        System.out.println(supermarketController.get(id));
     }
 
     private void deleteSupermarket() throws SQLException {
         System.out.println("\nEnter ID for a supermarket you want to delete");
         int id = INPUT.nextInt();
-        System.out.println(supermarketController.delete(id));
+        supermarketController.delete(id);
+        System.out.println("Deleted successfully");
     }
 
     private void createSupermarket() throws SQLException {
@@ -348,7 +364,8 @@ public class MyView {
         System.out.println("\nEnter houseId");
         Integer houseId = INPUT.nextInt();
         Supermarket supermarket = new Supermarket(description, areaSize, workScheudleStart, workScheudleEnd, averageCustomers, houseId);
-        System.out.println(supermarketController.create(supermarket));
+        supermarketController.create(supermarket);
+        System.out.println("Created successfully");
     }
 
     private void updateSupermarket() throws SQLException {
@@ -367,7 +384,8 @@ public class MyView {
         System.out.println("\nEnter houseId");
         Integer houseId = INPUT.nextInt();
         Supermarket updatedSupermarket = new Supermarket(id, description, areaSize, workScheudleStart, workScheudleEnd, averageCustomers, houseId);
-        System.out.println(supermarketController.update(updatedSupermarket));
+        supermarketController.update(updatedSupermarket);
+        System.out.println("Updated successfully");
     }
 
     private void getAllTradeNetworks() throws SQLException {
@@ -378,20 +396,22 @@ public class MyView {
     private void getTradeNetworkById() throws SQLException {
         System.out.println("\nEnter ID for trade network");
         int id = INPUT.nextInt();
-        System.out.println(tradeNetworkController.getBy(id));
+        System.out.println(tradeNetworkController.get(id));
     }
 
     private void deleteTradeNetwork() throws SQLException {
         System.out.println("\nEnter ID for trade network you want to delete");
         int id = INPUT.nextInt();
-        System.out.println(tradeNetworkController.delete(id));
+        tradeNetworkController.delete(id);
+        System.out.println("Deleted successfully");
     }
 
     private void createTradeNetwork() throws SQLException {
         System.out.println("\nEnter name");
         String name = INPUT.next();
         TradeNetwork tradeNetwork = new TradeNetwork(name);
-        System.out.println(tradeNetworkController.create(tradeNetwork));
+        tradeNetworkController.create(tradeNetwork);
+        System.out.println("Created successfully");
     }
 
     private void updateTradeNetwork() throws SQLException {
@@ -400,7 +420,8 @@ public class MyView {
         System.out.println("\nEnter name");
         String name = INPUT.next();
         TradeNetwork updatedTradeNetwork = new TradeNetwork(id, name);
-        System.out.println(tradeNetworkController.update(updatedTradeNetwork));
+        tradeNetworkController.update(updatedTradeNetwork);
+        System.out.println("Updated successfully");
     }
 
     private void getAllAdvertisments() throws SQLException {
@@ -411,13 +432,14 @@ public class MyView {
     private void getAdvertismentById() throws SQLException {
         System.out.println("\nEnter ID for advertisment");
         int id = INPUT.nextInt();
-        System.out.println(advertismentController.getBy(id));
+        System.out.println(advertismentController.get(id));
     }
 
     private void deleteAdvertisment() throws SQLException {
         System.out.println("\nEnter ID for an advertisment you want to delete");
         int id = INPUT.nextInt();
-        System.out.println(advertismentController.delete(id));
+        advertismentController.delete(id);
+        System.out.println("Deleted successfully");
     }
 
     private void createAdvertisment() throws SQLException {
@@ -430,7 +452,8 @@ public class MyView {
         System.out.println("\nEnter trade network id");
         Integer tradeNetworkId = INPUT.nextInt();
         Advertisment advertisment = new Advertisment(description, producer, duration, tradeNetworkId);
-        System.out.println(advertismentController.create(advertisment));
+        advertismentController.create(advertisment);
+        System.out.println("Created successfully");
     }
 
     private void updateAdvertisment() throws SQLException {
@@ -445,7 +468,8 @@ public class MyView {
         System.out.println("\nEnter trade network id");
         Integer tradeNetworkId = INPUT.nextInt();
         Advertisment updatedAdvertisment = new Advertisment(id, description, producer, duration, tradeNetworkId);
-        System.out.println(advertismentController.update(updatedAdvertisment));
+        advertismentController.update(updatedAdvertisment);
+        System.out.println("Updated successfully");
     }
 
     private void showMenu() {

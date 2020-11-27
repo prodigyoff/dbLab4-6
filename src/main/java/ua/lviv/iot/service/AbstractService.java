@@ -1,5 +1,7 @@
 package ua.lviv.iot.service;
 
+import org.hibernate.Session;
+import ua.lviv.iot.DAO.BaseDAO;
 import ua.lviv.iot.DAO.DAOTemplate;
 
 import java.sql.SQLException;
@@ -12,34 +14,35 @@ public abstract class AbstractService<T, ID, DAO> implements ServiceTemplate<T, 
     @SuppressWarnings({ "unchecked", "deprecation" })
     public AbstractService(Class<DAO> currentClass) {
         try {
-            dataAccess = (DAOTemplate<T, ID>) currentClass.newInstance();
+            dataAccess = (BaseDAO<T, ID>) currentClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public List<T> getAll() throws SQLException {
-        return dataAccess.getAll();
+    public List<T> getAll(Session session) throws SQLException {
+        return dataAccess.getAll(session);
     }
 
     @Override
-    public T getBy(ID id) throws SQLException {
-        return dataAccess.getBy(id);
+    public T get(ID id, Session session) throws SQLException {
+        return dataAccess.get(id, session);
     }
 
     @Override
-    public int delete(ID id) throws SQLException {
-        return dataAccess.delete(id);
+    public void delete(ID id, Session session) throws SQLException {
+        dataAccess.delete(id, session);
     }
 
     @Override
-    public int update(T entity) throws SQLException {
-        return dataAccess.update(entity);
+    public void update(T entity, Session session) throws SQLException {
+        dataAccess.update(entity, session);
     }
 
     @Override
-    public int create(T entity) throws SQLException {
-        return dataAccess.create(entity);
+    public void create(T entity, Session session) throws SQLException {
+        dataAccess.create(entity, session);
     }
+
 }

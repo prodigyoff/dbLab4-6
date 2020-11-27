@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/kit?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Amsterdam&amp;useSSL=false</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Pavlo?osada228</property>
+        <property name="hibernate.connection.pool_size">11</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <mapping class="ua.lviv.iot.model.entity.Advertisment" />
+        <mapping class="ua.lviv.iot.model.entity.AdvertismentPanel" />
+        <mapping class="ua.lviv.iot.model.entity.AdvertismentPanelHasAdvertisment" />
+        <mapping class="ua.lviv.iot.model.entity.City" />
+        <mapping class="ua.lviv.iot.model.entity.House" />
+        <mapping class="ua.lviv.iot.model.entity.Section" />
+        <mapping class="ua.lviv.iot.model.entity.Street" />
+        <mapping class="ua.lviv.iot.model.entity.Supermarket" />
+        <mapping class="ua.lviv.iot.model.entity.SupermarketHasSection" />
+        <mapping
+                class="ua.lviv.iot.model.entity.TradeNetwork" />
+        <mapping class="ua.lviv.iot.model.entity.TradeNetworkHasSupermarket" />
+    </session-factory>
+</hibernate-configuration>

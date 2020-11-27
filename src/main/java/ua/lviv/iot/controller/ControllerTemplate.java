@@ -7,11 +7,11 @@ public interface ControllerTemplate<T, ID> {
 
     List<T> getAll() throws SQLException;
 
-    T getBy(ID id) throws SQLException;
+    T get(ID id) throws SQLException;
 
-    int delete(ID id) throws SQLException;
+    void delete(ID id) throws SQLException;
 
-    int update(T entity) throws SQLException;
+    void update(T entity) throws SQLException;
 
-    int create(T entity) throws SQLException;
+    void create(T entity) throws SQLException;
 }
