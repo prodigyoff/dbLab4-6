@@ -1,11 +1,21 @@
 package ua.lviv.iot.service;
 
-import ua.lviv.iot.DAO.SectionDAO;
-import ua.lviv.iot.model.entity.Section;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
+import ua.lviv.iot.dataaccess.HouseRepository;
+import ua.lviv.iot.dataaccess.SectionRepository;
+import ua.lviv.iot.domain.House;
+import ua.lviv.iot.domain.Section;
 
-public class SectionService extends AbstractService<Section, Integer, SectionDAO> {
+@Service
+public class SectionService extends GeneralService<Section, Integer> {
 
-    public SectionService(){
-        super(SectionDAO.class);
+    @Autowired
+    SectionRepository sectionRepository;
+
+    @Override
+    public JpaRepository<Section, Integer> getRepository() {
+        return sectionRepository;
     }
 }

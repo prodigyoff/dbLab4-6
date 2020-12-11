@@ -1,11 +1,19 @@
 package ua.lviv.iot.service;
 
-import ua.lviv.iot.DAO.AdvertismentDAO;
-import ua.lviv.iot.model.entity.Advertisment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
+import ua.lviv.iot.dataaccess.AdvertismentRepository;
+import ua.lviv.iot.domain.Advertisment;
 
-public class AdvertismentService extends AbstractService<Advertisment, Integer, AdvertismentDAO> {
+@Service
+public class AdvertismentService extends GeneralService<Advertisment, Integer> {
 
-    public AdvertismentService(){
-        super(AdvertismentDAO.class);
+    @Autowired
+    AdvertismentRepository advertismentRepository;
+
+    @Override
+    public JpaRepository<Advertisment, Integer> getRepository() {
+        return advertismentRepository;
     }
 }

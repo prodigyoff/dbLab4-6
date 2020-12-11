@@ -1,4 +1,4 @@
-package ua.lviv.iot.model.entity;
+package ua.lviv.iot.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
@@ -7,10 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
-@Entity(name = "Section")
-@Table(name = "section")
-public class Section {
+@Entity
+@Table(name = "city")
+public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +21,14 @@ public class Section {
     @Column(name = "name")
     private String name;
 
-    public Section() {
+    public City() {
     }
 
-    public Section(String name){
+    public City(String name){
         this(-1, name);
     }
 
-    public Section(Integer id, String name) {
+    public City(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -50,9 +51,23 @@ public class Section {
 
     @Override
     public String toString() {
-        return "Section{" +
+        return "City{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City city = (City) o;
+        return id.equals(city.id) &&
+                name.equals(city.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }

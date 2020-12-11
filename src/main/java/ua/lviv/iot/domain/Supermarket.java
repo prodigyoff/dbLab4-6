@@ -1,8 +1,9 @@
-package ua.lviv.iot.model.entity;
+package ua.lviv.iot.domain;
 
 import javax.persistence.*;
+import java.util.Objects;
 
-@Entity(name = "Supermarket")
+@Entity
 @Table(name = "supermarket")
 public class Supermarket {
 
@@ -115,5 +116,24 @@ public class Supermarket {
                 ", averageCustomersAmount=" + averageCustomersAmount +
                 ", houseId=" + houseId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Supermarket that = (Supermarket) o;
+        return id.equals(that.id) &&
+                Objects.equals(description, that.description) &&
+                areaSizeInMeters.equals(that.areaSizeInMeters) &&
+                workScheudleStart.equals(that.workScheudleStart) &&
+                workScheudleEnd.equals(that.workScheudleEnd) &&
+                Objects.equals(averageCustomersAmount, that.averageCustomersAmount) &&
+                houseId.equals(that.houseId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, description, areaSizeInMeters, workScheudleStart, workScheudleEnd, averageCustomersAmount, houseId);
     }
 }

@@ -1,10 +1,21 @@
 package ua.lviv.iot.service;
 
-import ua.lviv.iot.DAO.CityDAO;
-import ua.lviv.iot.model.entity.City;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
+import ua.lviv.iot.dataaccess.AdvertismentRepository;
+import ua.lviv.iot.dataaccess.CityRepository;
+import ua.lviv.iot.domain.Advertisment;
+import ua.lviv.iot.domain.City;
 
-public class CityService extends AbstractService<City, Integer, CityDAO> {
-    public CityService(){
-        super(CityDAO.class);
+@Service
+public class CityService extends GeneralService<City, Integer> {
+
+    @Autowired
+    CityRepository cityRepository;
+
+    @Override
+    public JpaRepository<City, Integer> getRepository() {
+        return cityRepository;
     }
 }

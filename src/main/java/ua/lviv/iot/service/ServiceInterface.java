@@ -1,11 +1,14 @@
-package ua.lviv.iot.controller;
+package ua.lviv.iot.service;
 
-import ua.lviv.iot.service.ServiceInterface;
+import org.hibernate.Session;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface ControllerTemplate<T, ID> {
+@Service
+public interface ServiceInterface<T, ID> {
 
     List<T> getAll() throws SQLException;
 
@@ -17,5 +20,6 @@ public interface ControllerTemplate<T, ID> {
 
     void create(T entity) throws SQLException;
 
-    ServiceInterface<T, ID> getService();
+    JpaRepository<T, ID> getRepository();
+
 }

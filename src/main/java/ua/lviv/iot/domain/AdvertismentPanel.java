@@ -1,8 +1,9 @@
-package ua.lviv.iot.model.entity;
+package ua.lviv.iot.domain;
 
 import javax.persistence.*;
+import java.util.Objects;
 
-@Entity(name = "Advertisment_panel")
+@Entity
 @Table(name = "advertisment_panel")
 public class AdvertismentPanel {
 
@@ -102,5 +103,23 @@ public class AdvertismentPanel {
                 ", sectionId=" + sectionId +
                 ", numberOfPanels=" + numberOfPanels +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AdvertismentPanel that = (AdvertismentPanel) o;
+        return id.equals(that.id) &&
+                producer.equals(that.producer) &&
+                screenResolution.equals(that.screenResolution) &&
+                consumingPowerInWats.equals(that.consumingPowerInWats) &&
+                sectionId.equals(that.sectionId) &&
+                Objects.equals(numberOfPanels, that.numberOfPanels);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, producer, screenResolution, consumingPowerInWats, sectionId, numberOfPanels);
     }
 }

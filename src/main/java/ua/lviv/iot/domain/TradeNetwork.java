@@ -1,14 +1,9 @@
-package ua.lviv.iot.model.entity;
+package ua.lviv.iot.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity(name = "Trade_network")
+@Entity
 @Table(name = "trade_network")
 public class TradeNetwork {
 
@@ -54,5 +49,19 @@ public class TradeNetwork {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TradeNetwork that = (TradeNetwork) o;
+        return id.equals(that.id) &&
+                name.equals(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }
