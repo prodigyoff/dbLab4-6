@@ -1,13 +1,9 @@
 package ua.lviv.iot.controller;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import ua.lviv.iot.service.GeneralService;
 import ua.lviv.iot.service.ServiceInterface;
 
 import java.sql.SQLException;
