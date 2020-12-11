@@ -1,15 +1,13 @@
 package ua.lviv.iot.model.entity;
 
-import ua.lviv.iot.model.annotation.Column;
-import ua.lviv.iot.model.annotation.PrimaryKey;
-import ua.lviv.iot.model.annotation.Table;
+import javax.persistence.*;
 
-import java.sql.Time;
-
+@Entity(name = "Advertisment")
 @Table(name = "advertisment")
 public class Advertisment {
 
-    @PrimaryKey
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 

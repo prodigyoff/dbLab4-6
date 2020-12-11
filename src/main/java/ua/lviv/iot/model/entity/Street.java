@@ -1,13 +1,19 @@
 package ua.lviv.iot.model.entity;
 
-import ua.lviv.iot.model.annotation.Column;
-import ua.lviv.iot.model.annotation.PrimaryKey;
-import ua.lviv.iot.model.annotation.Table;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity(name = "Street")
 @Table(name = "street")
 public class Street {
 
-    @PrimaryKey
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 

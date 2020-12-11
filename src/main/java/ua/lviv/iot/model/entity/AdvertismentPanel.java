@@ -1,13 +1,13 @@
 package ua.lviv.iot.model.entity;
 
-import ua.lviv.iot.model.annotation.Column;
-import ua.lviv.iot.model.annotation.PrimaryKey;
-import ua.lviv.iot.model.annotation.Table;
+import javax.persistence.*;
 
+@Entity(name = "Advertisment_panel")
 @Table(name = "advertisment_panel")
 public class AdvertismentPanel {
 
-    @PrimaryKey
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 

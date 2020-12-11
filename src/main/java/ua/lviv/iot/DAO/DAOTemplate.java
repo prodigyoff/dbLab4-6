@@ -1,17 +1,19 @@
 package ua.lviv.iot.DAO;
 
+import org.hibernate.Session;
+
 import java.sql.SQLException;
 import java.util.List;
 
 public interface DAOTemplate<T, ID> {
 
-    List<T> getAll() throws SQLException;
+    List<T> getAll(Session session) throws SQLException;
 
-    T getBy(ID id) throws SQLException;
+    T get(ID id, Session session) throws SQLException;
 
-    int delete(ID id) throws SQLException;
+    void delete(ID id, Session session) throws SQLException;
 
-    int update(T entity) throws SQLException;
+    void update(T entity, Session session) throws SQLException;
 
-    int create(T entity) throws SQLException;
+    void create(T entity, Session session) throws SQLException;
 }
