@@ -64,9 +64,10 @@ CREATE TABLE IF NOT EXISTS `kit`.`trade_network` (
   UNIQUE INDEX `name_UNIQUE_idx` (`name`));
 
 CREATE TABLE IF NOT EXISTS `trade_network_has_supermarket` (
+    `id` INT NOT NULL AUTO_INCREMENT,
   `trade_network_id` INT NOT NULL,
   `supermarket_id` INT NOT NULL,
-  PRIMARY KEY (`trade_network_id`),
+  PRIMARY KEY (`id`),
   INDEX `trade-network_has_supermarket_idx` (`supermarket_id`),
   INDEX `supermarket_has_trade-network_idx` (`trade_network_id`));
 
@@ -80,17 +81,19 @@ CREATE TABLE IF NOT EXISTS `advertisment` (
   INDEX `advertisment_trade-network_idx` (`trade_network_id`));
 
 CREATE TABLE IF NOT EXISTS `supermarket_has_section` (
+    `id` INT NOT NULL AUTO_INCREMENT,
   `supermarket_id` INT NOT NULL,
   `section_id` INT NOT NULL,
-  PRIMARY KEY (`supermarket_id`),
+  PRIMARY KEY (`id`),
   INDEX `supermarket_has_section_idx` (`section_id`),
   INDEX `section_has_supermarket_idx` (`supermarket_id`));
 
 
 CREATE TABLE IF NOT EXISTS `advertisment_panel_has_advertisment` (
+    `id` INT NOT NULL AUTO_INCREMENT,
   `advertisment_panel_id` INT NOT NULL,
   `advertisment_id` INT NOT NULL,
-  PRIMARY KEY (`advertisment_panel_id`),
+  PRIMARY KEY (`id`),
   INDEX `advertisment_panel_has_advertismentidx` (`advertisment_id`),
   INDEX `advertisment_has_advertisment_panel_idx` (`advertisment_panel_id`));
 

@@ -1,11 +1,21 @@
 package ua.lviv.iot.service;
 
-import ua.lviv.iot.DAO.HouseDAO;
-import ua.lviv.iot.model.entity.House;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
+import ua.lviv.iot.dataaccess.CityRepository;
+import ua.lviv.iot.dataaccess.HouseRepository;
+import ua.lviv.iot.domain.City;
+import ua.lviv.iot.domain.House;
 
-public class HouseService extends AbstractService<House, Integer, HouseDAO> {
+@Service
+public class HouseService extends GeneralService<House, Integer> {
 
-    public HouseService(){
-        super(HouseDAO.class);
+    @Autowired
+    HouseRepository houseRepository;
+
+    @Override
+    public JpaRepository<House, Integer> getRepository() {
+        return houseRepository;
     }
 }
