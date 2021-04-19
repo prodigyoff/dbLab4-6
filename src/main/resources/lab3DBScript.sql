@@ -267,4 +267,3 @@ INSERT INTO `advertisment_panel_has_advertisment`(`advertisment_panel_id`,`adver
     ("8","8"),
     ("9","9"),
     ("10","10");
-    
