@@ -1,9 +1,7 @@
 package ua.lviv.iot.controller;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import ua.lviv.iot.service.ServiceInterface;
 
 import java.sql.SQLException;
@@ -23,13 +21,17 @@ public abstract class AbstractController<T, ID> implements ControllerTemplate<T,
 
     @Override
     @GetMapping("/{id}")
-    public T get(ID id) throws SQLException {
-        return (T) getService().get(id);
+    public T get(@PathVariable ID id) throws SQLException {
+        if (getService().get(id) == null){
+            return (T) ResponseEntity.notFound().build();
+        } else {
+            return getService().get(id);
+        }
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(ID id) throws SQLException {
+    public void delete(@PathVariable ID id) throws SQLException {
         getService().delete(id);
     }
 
