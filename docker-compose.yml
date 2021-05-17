@@ -35,7 +35,7 @@ services:
       db:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/kit?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/kit
       SPRING_DATASOURCE_USERNAME: "root"
       SPRING_DATASOURCE_PASSWORD: "Pavlo?osada228"
     ports:
