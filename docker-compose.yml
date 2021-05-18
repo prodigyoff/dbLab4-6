@@ -49,8 +49,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=Pavlo?osada228
       - MYSQL_DATABASE=kit
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=Pavlo?osada228
+      - MYSQL_USER=vladysuk
+      - MYSQL_PASSWORD=vlad?Chuvash228
     ports:
       - 3307:3306
     healthcheck:
