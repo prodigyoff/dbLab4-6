@@ -43,6 +43,7 @@
 /home/prodigy/db4/lab4/src/main/java/ua/lviv/iot/dataaccess/AdvertismentPanelHasAdvertismentRepository.java
 /home/prodigy/db4/lab4/src/main/java/ua/lviv/iot/swagger/SwaggerConfiguration.java
 /home/prodigy/db4/lab4/src/main/java/ua/lviv/iot/dataaccess/SupermarketHasSectionRepository.java
+/home/prodigy/db4/lab4/src/main/java/ua/lviv/iot/controller/HealthController.java
 /home/prodigy/db4/lab4/src/main/java/ua/lviv/iot/controller/SupermarketController.java
 /home/prodigy/db4/lab4/src/main/java/ua/lviv/iot/dataaccess/HouseRepository.java
 /home/prodigy/db4/lab4/src/main/java/ua/lviv/iot/domain/House.java
