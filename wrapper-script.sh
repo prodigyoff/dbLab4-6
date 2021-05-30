@@ -15,4 +15,4 @@ timeout 30s mvn spring-boot:run
 
 # shellcheck disable=SC2125
 
-#mvn spring-boot:run
+mvn spring-boot:run
